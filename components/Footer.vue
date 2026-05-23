@@ -1,11 +1,15 @@
+<script setup lang="ts">
+const currentYear = new Date().getFullYear();
+</script>
+
 <template>
   <footer class="footer">
     <p>
       <span>
-        Copyright © 2024 - 2025.
+        Copyright © 2024 - {{ currentYear }}.
       </span>
       <span>
-        Developed by Eugene Vinokurov
+        Code by Eugene Vinokurov | Design by Katherine Vinokurova
       </span>
     </p>
   </footer>
