@@ -7,6 +7,8 @@ Nuxt.js portofolio for [my website](https://eugevin.dev). Builded with Vite, Nux
 
 ## DEV MODE
 
+You need Node >= 26.2.0
+
 ```bash
 npm i
 npm run dev
