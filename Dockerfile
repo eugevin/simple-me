@@ -1,10 +1,10 @@
-FROM oven/bun:1.1.29
+FROM node:26.2-alpine
 WORKDIR /app
 
-COPY package.json bun.lockb ./
-RUN bun install --frozen-lockfile
+COPY package.json package-lock.json ./
+RUN npm install
 
 COPY . .
-RUN bun run build
+RUN npm run build
 
-CMD ["bun", ".output/server/index.mjs"]
+CMD ["node", ".output/server/index.mjs"]
