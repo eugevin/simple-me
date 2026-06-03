@@ -7,11 +7,11 @@ Nuxt.js portofolio for [my website](https://eugevin.dev). Builded with Vite, Nux
 
 ## DEV MODE
 
-You need Node >= 26.2.0
+You need Bun >= 1.3.14
 
 ```bash
-npm i
-npm run dev
+$ bun install
+$ bun dev
 ```
 
 Default server location: http://localhost:3000
@@ -19,5 +19,5 @@ Default server location: http://localhost:3000
 ## PROD MODE
 
 ```bash
-docker compose up -d
+$ docker compose up -d
 ```

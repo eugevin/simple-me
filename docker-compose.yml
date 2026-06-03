@@ -15,8 +15,6 @@ services:
   eugevin:
     build: .
     container_name: eugevin
-    expose:
-      - 3000
 
 volumes:
   caddy_data:
