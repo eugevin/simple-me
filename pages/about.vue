@@ -28,7 +28,8 @@ function cvHandler() {
 }
 
 async function scrollPage() {
-  document.querySelectorAll<HTMLElement>('.about-page section').forEach((section) => {
+  const pageSections = document.querySelectorAll('.about-page section')
+  pageSections.forEach((section) => {
     const movingEls = section.querySelectorAll<HTMLElement>('.moving')!
 
     scroll(
@@ -37,7 +38,9 @@ async function scrollPage() {
           const translate = info * Number(moving.dataset.translate || 0)
           const rotate = info * Number(moving.dataset.rotate || 0)
 
-          moving.style.transform = `translate(0, ${translate}%) rotate(${rotate}deg)`
+          moving.style.transform = `
+            translate(0, ${translate}%) rotate(${rotate}deg)
+          `
         })
       }),
       {
@@ -48,7 +51,10 @@ async function scrollPage() {
 
     movingEls.forEach((moving) => {
       inView(moving, () => {
-        animate(moving, { scale: [0, 1] }, { duration: 0.8, easing: easeOutBack })
+        animate(moving,
+          { scale: [0, 1] },
+          { duration: 0.8, easing: easeOutBack },
+        )
       }, { margin: '-200px 0px -200px 0px' })
     })
   })
@@ -64,15 +70,24 @@ useAnimations(scrollPage)
       <section>
         <h3>My name is Eugene</h3>
         <p>
-          I am Frontend developer on Vanilla JS, TypeScript and Vue.js (primarly).
+          I am Frontend developer on Vanilla JS,
+          TypeScript and Vue.js (primarly).
         </p>
         <p>
-          On the whole, I'm just an ordinary guy from Nizhny Novgorod who somehow likes writing code since childhood. I write code at home, write code before going to bed, write code at my parents' cottage. I learned to write code with the help of the method: “WRITE CODE, READ DOCUMENTATION”.
+          On the whole, I'm just an ordinary guy from Nizhny Novgorod
+          who somehow likes writing code since childhood. I write code at home,
+          write code before going to bed, write code at my parents' cottage.
+          I learned to write code with the help of the method:
+          “WRITE CODE, READ DOCUMENTATION”.
         </p>
         <p>
-          From time to time inspiration strikes and I want to make something of my own. So, for example, my <NuxtLink to="/project/olumni chat">
+          From time to time inspiration strikes and I want to make something
+          of my own. So, for example, my
+          <NuxtLink to="/project/olumni chat">
             <b class="hoverable">pet olumni project</b>
-          </NuxtLink> was born (WebRTC chat, built first on SFU and then on MESH architecture).
+          </NuxtLink>
+          was born (WebRTC chat, built first on
+          SFU and then on MESH architecture).
         </p>
         <img
           class="image image__me moving"
@@ -86,7 +101,10 @@ useAnimations(scrollPage)
       <section>
         <h3>My Skills</h3>
         <p>
-          I am a frontend developer, but also have experience in backend application development (commercial among others). It seems to me that you want to know more about me. Want to? Scroll down!
+          I am a frontend developer, but also have experience
+          in backend application development (commercial among others).
+          It seems to me that you want to know more about me.
+          Want to? Scroll down!
         </p>
         <p>
           <b>Frontend Skills:</b>
@@ -144,7 +162,12 @@ useAnimations(scrollPage)
             alt="section image"
           >
         </ul>
-        <p>*I also write in Rust. I like it a lot, but I'm still too little expert in it... Well, I mean, I can set up Tauri, I can write a basic backend, but the complicated stuff is still complicated stuff for me.</p>
+        <p>
+          *I also write in Rust. I like it a lot, but
+          I'm still too little expert in it... Well,
+          I mean, I can set up Tauri, I can write a basic backend,
+          but the complicated stuff is still complicated stuff for me.
+        </p>
         <img
           class="image image__rick moving"
           data-translate="50"
@@ -163,7 +186,10 @@ useAnimations(scrollPage)
       </section>
       <div class="cv">
         <p>You can downlaod my CV using this button:</p>
-        <Input type="button" @click="cvHandler">
+        <Input
+          type="button"
+          @click="cvHandler"
+        >
           Download
         </Input>
       </div>

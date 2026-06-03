@@ -25,6 +25,8 @@ function showPage() {
 useAnimations(showPage)
 </script>
 
+<!-- Only for svg... change to something other in future... -->
+<!-- eslint-disable max-len -->
 <template>
   <div class="contacts-page">
     <Header title="contacts" />
