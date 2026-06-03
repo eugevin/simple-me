@@ -24,7 +24,7 @@ const availablePages = computed<Page[]>(() => {
 const menuActive = ref<boolean>(false)
 
 onMounted(() => {
-  headerObserver = new ResizeObserver(entries => {
+  headerObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
       headerSize.h = entry.target.clientHeight
       headerSize.w = entry.target.clientWidth
