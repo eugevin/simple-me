@@ -30,35 +30,19 @@ button {
   &::before {
     content: "";
     position: absolute;
-    top: 50%;
+    bottom: 0;
     left: 0;
-    height: .08rem;
-    width: 0;
-    transform: translateY(-50%);
+    height: .1rem;
+    width: 100%;
+    opacity: 0;
     mix-blend-mode: difference;
     background: var(--white);
     transition: var(--transition);
   }
 
   &:hover::before {
-    animation: lineAnimation forwards var(--transition);
-  }
-
-  @keyframes lineAnimation {
-    0% {
-      height: .08rem;
-      width: 0;
-    }
-
-    50% {
-      height: .08rem;
-      width: 100%;
-    }
-
-    100% {
-      height: 100%;
-      width: 100%;
-    }
+    height: 100%;
+    opacity: 1;
   }
 }
 </style>
