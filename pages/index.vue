@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { animate, stagger } from 'motion'
+import { animate } from 'motion'
 import { clipPaths } from '~/static/clipPaths'
 import { easeInOutExpo, easeOutBack } from '~/static/easings'
 import type { Page } from '~/types'
@@ -8,26 +8,22 @@ definePageMeta({ pageTransition })
 
 const pages = useState<Page[]>('pages')
 
-const profileTitleEls = ref<HTMLElement[]>([])
+const profileTitleEl = ref<HTMLElement>()
 const profileImageEl = ref<HTMLElement>()
 
 useAnimations(() => {
-  const defaultShift: string = '.5'
+  if (!profileTitleEl.value || !profileImageEl.value) return
 
-  animate(profileTitleEls.value,
+  animate(profileTitleEl.value,
     {
       visibility: 'visible',
       opacity: [0, 1],
-      transform: [
-        `translate3d(-${defaultShift}rem, 0, 0) scale(${defaultShift})`,
-        '',
-      ],
     },
     {
-      delay: stagger(0.05),
+      duration: 1,
       easing: easeOutBack,
     })
-  animate(profileImageEl.value!,
+  animate(profileImageEl.value,
     {
       visibility: 'visible',
       clipPath: clipPaths.toRight,
@@ -56,14 +52,8 @@ useHead({
       <div class="profile">
         <figure class="profile__image">
           <figcaption>
-            <h1>
-              <span
-                v-for="letter in 'Eugene Vinokurov'"
-                :key="letter"
-                ref="profileTitleEls"
-                :data-letter="letter"
-              >{{
-                letter }}</span>
+            <h1 ref="profileTitleEl">
+              Eugene Vinokurov
             </h1>
           </figcaption>
           <picture>
