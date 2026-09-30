@@ -29,6 +29,9 @@ main {
   min-height: calc(100vh + 2rem);
   padding-bottom: 2rem;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 h1 {
