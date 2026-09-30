@@ -26,7 +26,7 @@ const route = useRoute()
 
 const currentPage = computed(() => {
   const mainPage = pages.value.find(page => page.link === route.path)
-  const easyRoute = route.path.split('/').at(-1)
+  const easyRoute = route.path.split('/').at(-1).replaceAll('%20', ' ')
 
   return mainPage?.title ?? easyRoute
 })
