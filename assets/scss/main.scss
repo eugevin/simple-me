@@ -9,7 +9,7 @@
 }
 
 html {
-  font-size: clamp(1rem, 1.5rem, 2rem);
+  font-size: clamp(16px, 2vw, 42px);
   font-family: Poppins, Helvetica, sans-serif;
   line-height: 1;
   position: relative;
@@ -17,10 +17,6 @@ html {
   color: var(--white);
   min-height: 100vh;
   scrollbar-gutter: stable;
-
-  @include tablet {
-    font-size: clamp(1rem, 1.3rem, 1.5rem);
-  }
 
   &::before {
     @include noise;
