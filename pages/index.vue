@@ -69,14 +69,14 @@ useHead({
           </picture>
         </figure>
         <div class="profile__pages">
-          <Input
+          <Button
             v-for="page in pages.filter(page => page.title !== 'home')"
             :key="page.title"
-            type="button"
-            @click="navigateTo(page.link)"
+            type="link"
+            :to="page.link"
           >
             {{ page.title.toUpperCase() }}
-          </Input>
+          </Button>
         </div>
       </div>
     </div>

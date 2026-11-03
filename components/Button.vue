@@ -1,21 +1,35 @@
 <script setup lang="ts">
-defineProps<{
-  type?: 'button'
+const props = defineProps<{
+  type?: 'button' | 'link'
+  to?: string
+  target?: '_blank'
 }>()
+
+const componentTag = computed(() =>
+  props.type === 'link' ? resolveComponent('NuxtLink') : 'button',
+)
+
+const componentProps = computed(() => {
+  if (props.type === 'link') {
+    return { to: props.to, target: props.target }
+  }
+
+  return { type: 'button' }
+})
 </script>
 
 <template>
-  <button v-if="type === 'button'">
-    <slot />
-  </button>
-  <input
-    v-else
-    type="text"
+  <component
+    :is="componentTag"
+    v-bind="componentProps"
+    class="button"
   >
+    <slot />
+  </component>
 </template>
 
 <style scoped lang="scss">
-button {
+.button {
   outline: none;
   background: none;
   font-family: Poppins, Helvetica, sans-serif;
@@ -26,6 +40,8 @@ button {
   cursor: pointer;
   padding: .25rem 1rem;
   position: relative;
+  text-align: center;
+  line-height: 1.2;
 
   &::before {
     content: "";

@@ -3,10 +3,6 @@ import { inView } from 'motion'
 
 definePageMeta({ pageTransition })
 
-function openSocial(url: string) {
-  window.open(url, '_blank')
-}
-
 function showPage() {
   const motions = document.querySelectorAll<SVGElement>('.motion')!
 
@@ -39,12 +35,13 @@ useAnimations(showPage)
       </p>
       <div class="buttons">
         <div class="box">
-          <Input
-            type="button"
-            @click="openSocial('https://t.me/eugevin')"
+          <Button
+            type="link"
+            to="https://t.me/eugevin"
+            target="_blank"
           >
             Telegram
-          </Input>
+          </Button>
           <svg
             class="motion"
             width="41"
@@ -68,12 +65,13 @@ useAnimations(showPage)
           </svg>
         </div>
         <div class="box">
-          <Input
-            type="button"
-            @click="openSocial('mailto:eugene.vinokuroff@gmail.com')"
+          <Button
+            type="link"
+            to="mailto:eugene.vinokuroff@gmail.com"
+            target="_blank"
           >
             Email
-          </Input>
+          </Button>
           <svg
             class="motion"
             width="24"

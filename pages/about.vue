@@ -23,10 +23,6 @@ const otherSkills: string[] = [
 
 definePageMeta({ pageTransition })
 
-function cvHandler() {
-  window.open('/cv.pdf', '_blank')
-}
-
 async function scrollPage() {
   const pageSections = document.querySelectorAll('.about-page section')
   pageSections.forEach((section) => {
@@ -185,13 +181,14 @@ useAnimations(scrollPage)
         >
       </section>
       <div class="cv">
-        <p>You can downlaod my CV using this button:</p>
-        <Input
-          type="button"
-          @click="cvHandler"
+        <p>You can download my CV using this button:</p>
+        <Button
+          type="link"
+          to="/cv.pdf"
+          target="_blank"
         >
-          Download
-        </Input>
+          Download CV
+        </Button>
       </div>
     </div>
   </div>

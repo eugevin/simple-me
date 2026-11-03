@@ -4,18 +4,20 @@ import type { NuxtError } from '#app'
 const props = defineProps({
   error: Object as () => NuxtError,
 })
+
+const statusMessage = computed<string>(() => 'status ' + props.error?.status)
 </script>
 
 <template>
   <div class="error">
     <div class="container">
-      <h1>status {{ props.error?.statusCode }}</h1>
-      <Input
-        type="button"
-        @click="navigateTo('/')"
+      <h1>{{ statusMessage }}</h1>
+      <Button
+        type="link"
+        to="/"
       >
         Go to home ->
-      </Input>
+      </Button>
     </div>
   </div>
 </template>
